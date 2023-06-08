@@ -6,11 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\History;
+use App\Models\Personal_access_tokens;
+use Illuminate\Support\Str;
 
 class ExcelApiController extends Controller
 {
     public function index()
-    {
+    {   
         return Category::all();
     }    
     

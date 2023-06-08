@@ -9,7 +9,9 @@ class Personal_access_tokens extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
+    protected $fillable = [        
         'token',
+        'last_used_at',
+        'expires_at',
     ];
 }

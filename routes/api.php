@@ -20,11 +20,11 @@ use App\Http\Controllers\Api\ExcelApiController;
 // });
 
 Route::prefix('api')->group(function () {
-    
+
     Route::get('/',[ExcelApiController::class,'index'])->name('index');
     Route::get('status',[ExcelApiController::class,'status'])->name('status');
     Route::get('{id}',[ExcelApiController::class,'show'])->name('show');
     Route::delete('{id}',[ExcelApiController::class,'delete'])->name('delete');
     Route::put('{id}',[ExcelApiController::class,'update'])->name('update');
 
-})->middleware('guest');
+})->middleware('token.validation');
