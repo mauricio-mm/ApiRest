@@ -15,12 +15,16 @@ use App\Http\Controllers\Api\ExcelApiController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::prefix('api')->group(function () {
-    Route::get('status',[ExcelApiController::class,'index'])->name('status');
-    Route::get('show/{id}',[ExcelApiController::class,'show'])->name('show');
-    Route::delete('delete/{id}',[ExcelApiController::class,'delete'])->name('delete');
-});
+    
+    Route::get('/',[ExcelApiController::class,'index'])->name('index');
+    Route::get('status',[ExcelApiController::class,'status'])->name('status');
+    Route::get('{id}',[ExcelApiController::class,'show'])->name('show');
+    Route::delete('{id}',[ExcelApiController::class,'delete'])->name('delete');
+    Route::put('{id}',[ExcelApiController::class,'update'])->name('update');
+
+})->middleware('guest');

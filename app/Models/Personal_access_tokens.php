@@ -10,8 +10,6 @@ class Personal_access_tokens extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
-        'name',
         'token',
     ];
 }
